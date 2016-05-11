@@ -1,0 +1,18 @@
+.jumbotron {
+    background-color:transparent !important;
+    color: azure;
+
+
+}
+
+#welcome {
+    border: 2px solid azure;
+    margin-top: 255px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom:100px;
+
+}
+
+
+

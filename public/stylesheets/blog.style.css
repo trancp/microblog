@@ -1,0 +1,17 @@
+.blog {
+    color: azure;
+}
+
+.blogImage {
+    border: 10px solid azure;
+    border-radius: 10px;
+}
+
+#todo-list{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+#blogBody {
+    margin-top: 20px;
+}

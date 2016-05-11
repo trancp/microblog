@@ -1,0 +1,33 @@
+{
+  "name": "microblog",
+  "version": "1.0.0",
+  "description": "MEAN micro blog",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "fs": "0.0.2",
+    "jwt-simple": "^0.5.0",
+    "method-override": "^2.3.5",
+    "moment": "^2.13.0",
+    "mongoose": "^4.4.14",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "satellizer": "^0.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trancp/microblog.git"
+  },
+  "author": "Chuan Tran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trancp/microblog/issues"
+  },
+  "homepage": "https://github.com/trancp/microblog#readme"
+}
