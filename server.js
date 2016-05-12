@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var database = require('./config/database');
 
-var port = process.env.PORT || 4000;
+var port = process.env.PORT || 3000;
 
 mongoose.connect(database.url);
 app.set('superSecret', database.secret);
