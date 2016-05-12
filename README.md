@@ -19,7 +19,7 @@ docker run --name <create name for DB container> -d mongo
 docker run -i -t --name <create name for app container> --link <name of DB>:db_1 -p 80:3000 <name of image>:latest bash 
 
 7)in bash run following command and should return app running on port 3000
-node server.jr
+node server.js
 
 8)open web browser and go to ip address given when you opened docker terminal
 
