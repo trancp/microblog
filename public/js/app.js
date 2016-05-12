@@ -9,11 +9,17 @@ meanTodo.config(['$routeProvider', '$authProvider', function ($routeProvider, $a
         })
         .when('/about', {
             templateUrl : 'partials/about.html',
-            controller : 'aboutCtrl'
+            controller : 'aboutCtrl',
+            resolve: {
+                loginRequired: loginRequired
+            }
         })
         .when('/contact', {
             templateUrl : 'partials/contact.html',
-            controller : 'contactCtrl'
+            controller : 'contactCtrl',
+            resolve: {
+                loginRequired: loginRequired
+            }
         })
         .when('/todoList', {
             templateUrl: 'partials/todolist.html',
