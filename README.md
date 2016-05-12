@@ -10,13 +10,13 @@ pull those images from docker hub
 3) cd into repository---
 
 4) to create docker image of repository---
-docker build -t <create name for new image> . 
+docker build -t create-name-for-new-image . 
 
 5) run a mongodb container---
-docker run --name <create name for DB container> -d mongo
+docker run --name create-name-for-DB-container -d mongo
 
 6) creating container for app running node and linking it to a db, then entering bash for the app container---
-docker run -i -t --name <create name for app container> --link <name of DB>:db_1 -p 80:3000 <name of image>:latest bash 
+docker run -i -t --name create-name-for-app-container --link name-of-DB>:db_1 -p 80:3000 name-of-image:latest bash 
 
 7) in bash run following command and should return app running on port 3000---
 node server.js
