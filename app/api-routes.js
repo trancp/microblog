@@ -13,7 +13,7 @@ module.exports = function(app) {
     app.get('/api/todos', ensureAuthenticated, function(request, response) {
         User.findById(request.user, function(err, user) {
             var userId = user._id;
-            Todo.find({ 'author' : userId }, function (error, todos) {
+            Todo.find({ 'author' : userId }).sort( {$natural : -1 }).exec( function (error, todos) {
                 if (error) {
                     response.send(error);
                 }
@@ -43,7 +43,7 @@ module.exports = function(app) {
                     response.send(error);
                 }
 
-                Todo.find({ "author" : userId },function(error, todos) {
+                Todo.find({ "author" : userId }).sort( {$natural : -1 }).exec(function(error, todos) {
                     if (error) {
                         response.send(error);
                     }
@@ -164,7 +164,7 @@ module.exports = function(app) {
             if (error) {
                 res.send(error);
             }
-            Todo.find({ "author" : req.body.userId },function(error, todos) {
+            Todo.find({ "author" : req.body.userId }).sort( {$natural : -1 }).exec( function(error, todos) {
                 if (error) {
                     res.send(error);
                 }
