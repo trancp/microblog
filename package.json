@@ -14,6 +14,7 @@
     "mongoose": "^4.4.14",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
+    "ngstorage": "^0.3.10",
     "satellizer": "^0.14.0"
   },
   "devDependencies": {},
