@@ -28,6 +28,9 @@
                                 <h2 class="blog">{{ todo.title }} <small class="col-md-5 ">{{ todo.date }}</small></h2>
                                 <img class="blogImage" ng-src="{{todo.uri}}">
                                 <h4 class="blog" id="blogBody">{{ todo.body }}</h4>
+                                <span>
+                                  <a href="/posts/{{$index}}">Comments</a>
+                                </span>
 
                             </div>
                         </div>

@@ -13,6 +13,9 @@ angular.module('todoService', [])
             },
             getUserId: function () {
                 return $http.get('/api/getId');
+            },
+            addComment: function (commentData) {
+                return $http.put('/api/todos', commentData);
             }
         }
     });

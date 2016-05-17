@@ -6,6 +6,7 @@ module.exports = mongoose.model('Blog', {
     body : String,
     date: String,
     author: mongoose.Schema.Types.ObjectId,
-    uri: String
+    uri: String,
+    comments: [{text: String}]
 });
 

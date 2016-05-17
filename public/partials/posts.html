@@ -1,0 +1,31 @@
+<div class="container">
+    <div layout="column">
+        <div class="blog-post">
+            <h2 class="blog">{{ post.title }} <small>{{ post.date }}</small></h2>
+            <img class="blogImage" ng-src="{{post.uri}}">
+            <h4 class="blog" id="blogBody">{{ post.body }}</h4>
+        </div>
+        <div>
+            <form ng-submit="addComment()">
+                <h4><p>Add a new comment</p></h4>
+                <div class="col-md-3" >
+                    <input type="text" placeholder="Comment" ng-model="comment">
+                </div>
+                <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+        </div>
+
+
+        <div ng-repeat="comment in post.comments" class="comments">
+            <h3>{{comment.text}}</h3>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+

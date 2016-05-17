@@ -53,6 +53,26 @@ module.exports = function(app) {
         });
     });
 
+    app.put('/api/todos', ensureAuthenticated, function(req, res) {
+        User.findById(req.user, function(err, user) {
+            if (!user) {
+                return res.status(400).send({ message: 'User not found' });
+            }
+            var userId = user._id;
+            Todo.find({ 'author' : userId }).sort( {$natural : -1 }).exec( function (error, todos) {
+                if (error) {
+                    res.send(error);
+                }
+                var blogToUpdate = todos[req.body.postId];
+                blogToUpdate.comments.push({text : req.body.comment});
+                blogToUpdate.save(function(err) {
+                    if (err) throw err;
+                });
+                res.json(todos[req.body.postId].comments);
+            });
+        });
+    });
+
 
 
     app.put('/api/me', ensureAuthenticated, function(req, res) {
@@ -149,6 +169,7 @@ module.exports = function(app) {
     var upload = multer({ storage: storage });
     app.post('/upload', upload.single('file'), function (req, res) {
         var imgData = fs.readFileSync(req.file.path);
+        fs.unlink(req.file.path);
         var imgContentType = req.file.mimetype;
         var imgDataB64 = new Buffer(imgData).toString('base64');
         var imgContentTypeB64 = "data:"+imgContentType+";base64,";
@@ -175,6 +196,6 @@ module.exports = function(app) {
 
 
     app.get('*', function (request, response) {
-        response.sendFile(__dirname + '/../public/index.html');
+        response.sendFile(path.resolve('public/index.html'));
     });
 };

@@ -1,7 +1,6 @@
 angular.module('todoController', [])
-.controller('todoCtrl', ['$scope', 'toastr', '$http', 'Todos', 'multipartForm', function ($scope, toastr, $http, Todos, multipartForm) {
+.controller('todoCtrl', ['$scope', 'toastr', '$http', 'Todos', 'multipartForm', 'blogPosts', '$stateParams', function ($scope, toastr, $http, Todos, multipartForm, blogPosts) {
     $scope.formData = {};
-
     Todos.getUserId()
         .success(function (data) {
             $scope.userId = data;
@@ -10,6 +9,9 @@ angular.module('todoController', [])
     Todos.get()
         .success(function (data) {
             $scope.todos = data;
+            for (var i=0; i < data.length; i++){
+                blogPosts.post[i] = data[i];
+            }
         });
 
 
@@ -22,15 +24,24 @@ angular.module('todoController', [])
                 .success(function (data) {
                     $scope.formData = {};
                     $scope.todos = data;
+                    for (var i=0; i < data.length; i++){
+                        blogPosts.post[i] = data[i];
+                    }
+
                 })
         }
 
     };
 
+
+
     $scope.deleteTodo = function (id) {
         Todos.delete(id)
             .success(function (data) {
                 $scope.todos = data;
+                for (var i=0; i < data.length; i++){
+                    blogPosts.post[i] = data[i];
+                }
             });
     };
 
